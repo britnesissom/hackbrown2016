@@ -1,0 +1,72 @@
+h2 {
+	margin-top: 100px;
+	margin-bottom: 25px;
+}
+
+ul {
+	background-color: #fff;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+li {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: -10px;
+	overflow: auto;
+	padding-bottom:10px;
+	border-bottom: 1px solid #000000;
+	cursor: pointer;
+}
+
+li:last {
+	border-right: none;
+}
+
+#create, #listing-rooms, #listing-bath, .no-results, .new-search {
+	display: inline-block;
+}
+
+#listing-name {
+	font-size: 16pt;
+}
+
+#listing-price {
+	display:inline-block;
+	float: right;
+	margin-right: 20px;
+}
+
+#name-address {
+	display:inline-block;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+
+#list-map {
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+#list {
+	float: left;
+	width:50%;
+	margin-top: -22px;
+}
+
+#listing-list {
+	height: 500px;
+	overflow: auto;
+}
+
+#map {
+	width: 48%;
+	height: 500px;
+}
+
+.divider {
+    width: 5px;
+    height: auto;
+    display: inline-block;
+}

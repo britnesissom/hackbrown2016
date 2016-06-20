@@ -1,0 +1,261 @@
+/* to vertical align
+margin-left: auto
+margin-right: auto
+text-align: center*/
+
+button a, button a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.container #listing-cntr {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#listing-main {
+	margin-top: 100px;
+}
+
+.postform {
+	margin-top: 10%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#listing-label {
+	padding-right: 10px;
+}
+
+.label.label-textarea {
+	vertical-align: top;
+}
+
+.label {
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+#listing-cntr .label {
+	margin-left:-20px;
+}
+
+#listing-cntr textarea {
+	max-height: 130px;
+}
+
+
+
+
+
+#address {
+  	max-height: 50px;
+}
+
+#review-cntr textarea {
+	width: 204px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-top: 5px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+.block {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.container #reviews-cntr {
+  position: relative;
+  background-color: #fff;
+  width: 50%;
+  margin: 130px auto;
+  margin-bottom: 10px;
+}
+
+.textbox {
+width: 200px;
+  margin-left: 10px;
+  height:20px;
+  font-size: 12pt;
+}
+
+#footer {
+  position: relative;
+  margin-top: 10px;
+}
+
+.pure-button {
+	background: #4CAF50;
+	border-radius: 4px;
+	color: white;
+	margin-top: 0px;
+	font-size: 85%;
+}
+
+#topbar {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height:70px;
+	line-height: 20px;
+	background-color: black;
+	z-index: 2;
+}
+
+#title, #searchbar {
+	display: inline-block;
+	margin-top: 0px;
+}
+
+#title a {
+	color: #fff;
+}
+
+#title a:visited {
+	color: #fff;
+}
+
+.container {
+	text-align: center;
+	z-index: 1;
+}
+
+#searchbar * {
+	align-self: center;
+	display: inline-block;
+}
+
+#searchbar input {
+	margin-left: 50px;
+	width:200px;
+	height:20px;
+	text-align:left;
+	padding-left:5px;
+	font-size:10pt;
+}
+
+.ui-autocomplete {
+	width:300px;
+	z-index: 3;
+}
+
+.ui-autocomplete.ui-menu .ui-menu-item {
+	font-size: 12pt;
+	background-color: #fff;
+	padding: 3px 10px;
+	z-index: 3;
+}
+
+.ui-autocomplete .ui-menu-item.ui-state-focus, .ui-autocomplete .ui-menu-item.ui-state-hover {
+	background-color: #000;
+	color: #fff;
+	z-index: 3;
+}
+
+.ui-resizable-se {
+  bottom:17px;
+}
+
+#comments.ui-resizable {
+  margin: 0px;
+  resize: both !important;
+  position: relative !important;
+  zoom: 1;
+}
+
+.ui-wrapper {
+  overflow: visible !important;
+  display: inline-block !important;
+  position: static !important;
+  top: auto;
+  left: auto;
+  margin: 0px;
+  padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+#listing-main h2 {
+	margin-top: 100px;
+	margin-bottom: 25px;
+}
+
+#listing-list ul {
+	background-color: #fff;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#listing-list li {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: -10px;
+	overflow: auto;
+	padding-bottom:10px;
+	border-bottom: 1px solid #000000;
+	cursor: pointer;
+}
+
+#listing-list li:last {
+	border-right: none;
+}
+
+#create, #listing-rooms, #listing-bath, .no-results, .new-search {
+	display: inline-block;
+}
+
+#listing-name {
+	font-size: 16pt;
+}
+
+#listing-price {
+	display:inline-block;
+	float: right;
+	margin-right: 20px;
+}
+
+#name-address {
+	display:inline-block;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+
+#list-map {
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+#list {
+	float: left;
+	width:50%;
+	background-color: #fff;
+	height: 500px;
+	margin-right: 15px;
+}
+
+#listing-list {
+	height: 500px;
+	overflow: auto;
+}
+
+#map {
+	width: 48%;
+	height: 500px;
+}
+
+.divider {
+    width: 5px;
+    height: auto;
+    display: inline-block;
+}

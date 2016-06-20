@@ -1,0 +1,79 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+
+{% block scripts %}
+	{{ block.super }}
+	<script src="{% static 'frontend/js/listings.js' %}"></script>
+	<script type="text/javascript">
+	/* is this actually even being called? */
+		sendUniList({{ schools|safe }});
+		sendSchool({{ school_obj.id }});
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeJWjYVCR-udyszKWoRdPmJPlRluytjzA&callback=initMap"
+	async defer></script>  
+{% endblock %}
+
+{% block content %}
+
+
+<div id="listing-main">
+<h2> Listings near {{school_obj.name}} </h2>
+
+<div id="create">
+	<button class="create_review pure-button">Create Review</button>
+	<div class="divider"></div>
+	<button class="create_listing pure-button">Create Listing</button>
+</div>       
+</div>
+
+<div id="listing-cntr">
+<div id="list-map">
+
+	<div id="list" class="pane">
+			{% if listings %} <!-- Makes table if name exists-->
+			<br>
+
+			<ul id="listing-list">
+				{% for listing in listings %} <!-- For loop puts all results in the columns-->
+				<!-- definitely change this table -->
+				<li>
+					<div class="listing">
+
+						<input type="hidden" class="id_align" name="id_align" value="{{ listing.id }}">
+
+						<div id="name-address">
+							<div id="listing-name">{{ listing.listing_name }}</div>
+							<div id="listing-address">{{ listing.address }}</div>
+
+							<div id="room-bath">
+								<span id="listing-rooms">{{ listing.rooms }} bed</span>
+								&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+								<span id="listing-bath">{{ listing.bathrooms }} bath</span>
+							</div>
+
+							<div id="listing-comments"><br>Comments: {{ listing.comments }}</div>
+						</div>
+						<div id="listing-price">${{ listing.price }}</div>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+			{% else %} <!-- otherwise prints hello world-->
+
+			<div class="no-results">
+				<h2>Oh no! There aren't any results yet for {{school}}.</h2>
+				<div class="new-search">
+					<button id="search_again" class="pure-button">Try another school!</button>
+					<div class="divider"></div>
+					<button class="create_listing pure-button">Add a Listing</button>
+				</div>
+			</div>
+			{% endif %}
+	</div>
+	<div id="map"></div>
+</div>
+</div>
+
+{% endblock %}
+
+

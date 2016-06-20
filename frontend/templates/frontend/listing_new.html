@@ -1,0 +1,45 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+
+{% block scripts %}
+	{{ block.super }}
+	<script src="{% static 'frontend/js/listings.js' %}"></script>
+	<script type="text/javascript">
+	/* is this actually even being called? */
+		sendUniList({{ schools|safe }});
+		sendSchool({{ id }});
+	</script>
+{% endblock %}
+
+{% block content %}
+	
+	<form class="postform" action="/listings/{{id}}/new/" method="POST">{% csrf_token %}
+		<table>
+		    {% for field in form.visible_fields %}
+		    <tbody>
+		    <tr id="label-row">
+		      <td id="listing-label">
+		        <label for="{{ field.label }}" style="float:right;vertical-align:middle;">{{ field.label }}</label>
+		      </td>
+		      <td>
+		        {{ field }}
+		      </td>
+		    </tr>
+		    {% endfor %}
+		    </tbody>
+		</table>
+	
+        <!-- <form action="upload.php" method="post" enctype="multipart/form-data" name="image">
+          Select image to upload
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <br>
+          <br>
+          <input type="submit" value="Submit" name="submit">
+        </form> -->
+
+        <input type="submit" value="Submit" class="pure-button" />
+
+        <!-- <input type="submit" name="Add Listing"> -->
+      </form>
+{% endblock %}
+

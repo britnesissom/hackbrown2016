@@ -1,0 +1,20 @@
+{% extends 'frontend/base.html' %}
+
+{% block content %}
+  <div class="container">
+
+
+<h2>Page View Report</h2>
+
+
+<ul>
+
+{% for school in schools %}
+    <li>{{ school.name }}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}

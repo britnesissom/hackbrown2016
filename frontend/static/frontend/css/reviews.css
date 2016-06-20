@@ -1,0 +1,14 @@
+body {
+  	height: 100%;
+  	margin: 0;
+  	padding: 0;
+}
+
+h2 {
+	font-size:24pt;
+}
+
+#map {
+	width: 500px;
+ 	height: 500px;
+}

@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="../static/media/HousingHack.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+		<script src="{% static 'frontend/js/home.js' %}"></script>
+
+		<link rel="stylesheet" href="{% static 'frontend/css/home.css' %}">
+		<meta charset="UTF-8">
+		<title>HackHousing</title>
+
+		<script type="text/javascript">
+			/* is this actually even being called? */
+			sendUniList({{ schools|safe }});
+		</script>
+	</head>
+
+	<body>
+
+	<h1 id="title"><a href="/">HackHousing</a></h1>
+
+		<div id="container">
+			<div class="home">
+				<h2>Where would you like to live?</h2>
+				<input id="search" type="text" placeholder="Enter university name">
+				<button class="search-button pure-button">View Listings</button>
+			</div>
+
+			<!-- maybe recent listings or reviews? -->
+			
+		</div>
+		<footer id="footer">&copy; Hack@Brown 2016</footer>
+	</body>
+	
+
+</html>

@@ -1,0 +1,137 @@
+{% load ratings %}
+
+<!doctype html>
+<html>
+<head>
+  <title>HackHousing</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+  <link rel="shortcut icon" href="../static/media/HousingHack.png">
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/create-review.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+  <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src={{url_for('static', filename='js/home.js')}}></script>
+  <script src={{url_for('static', filename='js/create_review.js')}}></script>
+
+<script type="text/javascript">
+  sendListings({{ schools|safe }});
+</script>
+</head>
+
+<body>
+  <div id="topbar">
+    <h1 id="title"><a href="/">HackHousing</a></h1>
+    <div id="searchbar">
+      <input id="search" type="text" placeholder="Enter university name">
+      <button class="search-button pure-button">Search</button>
+    </div>
+  </div>
+
+  <div id="container">
+    <h1>Post your review below</h1>
+
+    <form class="postform" action="/reviews/{{listing_id}}/new/" method="POST">{% csrf_token %}
+    {{ form.listing_id.as_hidden }}
+
+      <input type="hidden" name="listing_id" value="{{ listing_id }}"/>
+
+      <div class="block">
+        <span class="input">
+        {{ form.user.label }} {{ form.user }}
+          <!-- <label class="label" for="name">Name</label> 
+          <input id="name" name="name" type="text" class="textbox" placeholder="Name" required /> -->
+        </span>
+      </div>
+
+      <div class="block">
+        <span class="input">
+        {{ form.description.label }} {{ form.description }}
+          <!-- <label class="label" for="description">Description</label>
+          <textarea id ="description" name="description" placeholder="Description" class="textbox"></textarea> -->
+        </span></div>
+
+        <div class="block">
+          {{ form.cleanliness.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.heating.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.appliances.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.bathrooms.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.rooms.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.ll_avail.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.ll_helpful.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+        {{ form.ll_personality.label }}
+
+          {% ratings object %}
+        </div>
+
+        <div class="block">
+          <span class="input">
+          {{ form.comments.label }} {{ form.comments }}
+            <!-- <label class="label" for="comments">Comments</label>
+            <textarea id="comments" name="comments" placeholder="Comments" rows="4"></textarea> -->
+            
+          </span>
+        </div>
+        <!-- <form action="upload.php" method="post" enctype="multipart/form-data" name="image">
+          Select image to upload
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <br>
+          <br>
+          <input type="submit" value="Submit" name="submit">
+        </form> -->
+
+        <input type="submit" name="Post Review">
+      </form>
+
+      <!-- why aren't stars diplaying? -->
+      <!-- how to display where each text input is instead of copy/pasting a ton -->
+      
+
+
+
+    </div>
+
+    <footer id="footer">&copy; Hack@Brown 2016</footer>
+  </body>
+
+
+  </html>
