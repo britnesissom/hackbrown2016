@@ -7,7 +7,7 @@ from .models import Listing, School, Review
 from .forms import ListingForm, ReviewForm
 
 
-def get_schools() {
+def get_schools():
 	schools = School.objects.all()
 
 	school_list = []
@@ -15,7 +15,6 @@ def get_schools() {
 		school_list.append(school.name)
 
 	return school_list
-}
 
 # Create your views here.
 def index(request):
