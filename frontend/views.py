@@ -6,15 +6,20 @@ import json
 from .models import Listing, School, Review
 from .forms import ListingForm, ReviewForm
 
-schools = School.objects.all()
 
-school_list = []
-for school in schools:
-	school_list.append(school.name)
+def get_schools() {
+	schools = School.objects.all()
+
+	school_list = []
+	for school in schools:
+		school_list.append(school.name)
+
+	return school_list
+}
 
 # Create your views here.
 def index(request):
-	return render(request, 'frontend/index.html', {'schools': json.dumps(school_list)})
+	return render(request, 'frontend/index.html', {'schools': json.dumps(get_schools())})
 
 def db(request):
 	listings = Listing.objects.all()
@@ -31,7 +36,7 @@ def school_db(request):
 		new_school.name = school_list
 		new_school.save()
 
-	return render(request, 'frontend/db_school.html', {'schools': json.dumps(school_list)})
+	return render(request, 'frontend/db_school.html', {'schools': json.dumps(get_schools())})
 
 def display_listings(request, school):
 
@@ -39,11 +44,11 @@ def display_listings(request, school):
 	print(school_obj)
 	listings = Listing.objects.filter(school=school)
 
-	return render(request, 'frontend/listings.html', {'school': school_obj, 'listings': listings, 'schools': json.dumps(school_list)})
+	return render(request, 'frontend/listings.html', {'school': school_obj, 'listings': listings, 'schools': json.dumps(get_schools())})
 
 def listing_reviews(request, pk):
 	reviews = Review.objects.filter(listing_id=pk)
-	return render(request, 'frontend/reviews.html', {'schools': json.dumps(school_list), 'reviews': reviews})
+	return render(request, 'frontend/reviews.html', {'schools': json.dumps(get_schools()), 'reviews': reviews})
 
 #@login_required
 def submit_listing(request, school_id):
@@ -66,7 +71,7 @@ def submit_listing(request, school_id):
 	else:
 		form = ListingForm(initial={'school': school})
 
-	return render(request, 'frontend/listing_new.html', {'form': form, 'school': school, 'id': school_id, 'schools': json.dumps(school_list)})
+	return render(request, 'frontend/listing_new.html', {'form': form, 'school': school, 'id': school_id, 'schools': json.dumps(get_schools())})
 
 
 def submit_review(request, pk):
@@ -93,4 +98,4 @@ def submit_review(request, pk):
 	else:
 		form = ReviewForm(initial={'listing_id': pk})
 
-	return render(request, 'frontend/reviews.html', {'form': form, 'listing_id': pk, 'schools': json.dumps(school_list)})
+	return render(request, 'frontend/reviews.html', {'form': form, 'listing_id': pk, 'schools': json.dumps(get_schools())})
