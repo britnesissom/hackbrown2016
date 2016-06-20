@@ -10,7 +10,7 @@ class Listing(models.Model):
    price = models.DecimalField(max_digits=7, decimal_places=2)
    rooms = models.SmallIntegerField()
    bathrooms = models.SmallIntegerField()
-   comments = models.TextField(blank=True)
+   comments = models.TextField(blank=True, default="N/A")
    created_date = models.DateTimeField(default=timezone.now)
    published_date = models.DateTimeField(blank=True, null=True)
 
@@ -33,7 +33,7 @@ class Review(models.Model):
    ll_avail = models.SmallIntegerField()
    ll_helpful = models.SmallIntegerField()
    ll_personality = models.SmallIntegerField()
-   comments = models.TextField(blank=True)
+   comments = models.TextField(blank=True, default="N/A")
    listing_id = models.IntegerField() 
    created_date = models.DateTimeField(default=timezone.now)
    published_date = models.DateTimeField(blank=True, null=True)
