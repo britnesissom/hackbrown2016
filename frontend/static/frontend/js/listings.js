@@ -1,8 +1,9 @@
 $(document).ready(function() {
-	$( ".listing" ).click(function() {
-		var list_id = $(this).find(".id_align").val();
+	$( "#listing" ).click(function() {
+		var list_id = $(".id_align").val();
+		console.log("list_id: " + list_id);
 		alert(list_id);
-		var location = "/create_review/" + list_id;
+		var location = "/reviews/" + list_id;
 		alert('' + location);
 		window.location.href = location;
 	});

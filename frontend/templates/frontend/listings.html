@@ -7,7 +7,7 @@
 	<script type="text/javascript">
 	/* is this actually even being called? */
 		sendUniList({{ schools|safe }});
-		sendSchool({{ school_obj.id }});
+		sendSchool({{ school.id }});
 	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeJWjYVCR-udyszKWoRdPmJPlRluytjzA&callback=initMap"
 	async defer></script>  
@@ -17,7 +17,7 @@
 
 
 <div id="listing-main">
-<h2> Listings near {{school_obj.name}} </h2>
+<h2> Listings near {{school.name}} </h2>
 
 <div id="create">
 	<button class="create_review pure-button">Create Review</button>
@@ -37,7 +37,7 @@
 				{% for listing in listings %} <!-- For loop puts all results in the columns-->
 				<!-- definitely change this table -->
 				<li>
-					<div class="listing">
+					<div id="listing">
 
 						<input type="hidden" class="id_align" name="id_align" value="{{ listing.id }}">
 
@@ -61,7 +61,7 @@
 			{% else %} <!-- otherwise prints hello world-->
 
 			<div class="no-results">
-				<h2>Oh no! There aren't any results yet for {{school}}.</h2>
+				<h2>Oh no! There aren't any results yet for {{school.name}}.</h2>
 				<div class="new-search">
 					<button id="search_again" class="pure-button">Try another school!</button>
 					<div class="divider"></div>

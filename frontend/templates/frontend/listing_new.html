@@ -15,18 +15,22 @@
 	
 	<form class="postform" action="/listings/{{id}}/new/" method="POST">{% csrf_token %}
 		<table>
+			{% for hidden in form.hidden_fields %}
+			    {{ hidden }}
+			{% endfor %}
+
 		    {% for field in form.visible_fields %}
-		    <tbody>
-		    <tr id="label-row">
-		      <td id="listing-label">
-		        <label for="{{ field.label }}" style="float:right;vertical-align:middle;">{{ field.label }}</label>
-		      </td>
-		      <td>
-		        {{ field }}
-		      </td>
-		    </tr>
+			    <tbody>
+			    <tr id="label-row">
+			      <td id="listing-label">
+			        <label for="{{ field.label }}" style="float:right;vertical-align:middle;">{{ field.label }}</label>
+			      </td>
+			      <td>
+			        {{ field }}
+			      </td>
+			    </tr>
+				</tbody>
 		    {% endfor %}
-		    </tbody>
 		</table>
 	
         <!-- <form action="upload.php" method="post" enctype="multipart/form-data" name="image">

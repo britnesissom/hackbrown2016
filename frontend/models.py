@@ -5,17 +5,16 @@ from django.utils import timezone
 class Listing(models.Model):
    author = models.ForeignKey('auth.User')
    listing_name = models.CharField(max_length=200)
-   school = models.CharField(max_length=100)
+   school = models.CharField(max_length=100, default="school")
    address = models.CharField(max_length=100)
    price = models.DecimalField(max_digits=7, decimal_places=2)
    rooms = models.SmallIntegerField()
    bathrooms = models.SmallIntegerField()
    comments = models.TextField(blank=True, default="N/A")
    created_date = models.DateTimeField(default=timezone.now)
-   published_date = models.DateTimeField(blank=True, null=True)
 
    def publish(self):
-      self.published_date = timezone.now()
+      self.created_date = timezone.now()
       self.save()
 
    def __str__(self):
@@ -36,10 +35,9 @@ class Review(models.Model):
    comments = models.TextField(blank=True, default="N/A")
    listing_id = models.IntegerField() 
    created_date = models.DateTimeField(default=timezone.now)
-   published_date = models.DateTimeField(blank=True, null=True)
 
    def publish(self):
-      self.published_date = timezone.now()
+      self.created_date = timezone.now()
       self.save()
 
    def __str__(self):

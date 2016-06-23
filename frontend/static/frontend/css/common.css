@@ -190,6 +190,10 @@ width: 200px;
 	margin-bottom: 25px;
 }
 
+#listing-list {
+	height: 470px;
+	overflow: auto;
+}
 #listing-list ul {
 	background-color: #fff;
 	margin-left: 20px;
@@ -242,11 +246,6 @@ width: 200px;
 	background-color: #fff;
 	height: 500px;
 	margin-right: 15px;
-}
-
-#listing-list {
-	height: 500px;
-	overflow: auto;
 }
 
 #map {

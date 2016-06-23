@@ -25,7 +25,9 @@
         {% if user.is_authenticated %}
             <p class="top-menu">Hello {{ user.username }}!<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p> 
         {% else %}
-            <button class="login-btn pure-button"><a href="{% url 'login' %}" class="top-menu">Log In</a></button>
+            <div id="login">
+                {% include "registration/login.html" %}
+            </div>
         {% endif %}
     </div>
 
@@ -35,7 +37,5 @@
             {% endblock %}
         </div>
     </div>
-
-    <footer id="footer">&copy; Hack@Brown 2016</footer>
   </body>
 </html>
