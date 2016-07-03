@@ -25,9 +25,7 @@
         {% if user.is_authenticated %}
             <p class="top-menu">Hello {{ user.username }}!<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p> 
         {% else %}
-            <div id="login">
-                {% include "registration/login.html" %}
-            </div>
+            <button class="login-btn pure-button"><a href="{% url 'login' %}" class="top-menu">Log In</a></button>
         {% endif %}
     </div>
 
